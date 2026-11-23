@@ -1,3 +1,4 @@
+
 name: Pipeline CI-CD FastAPI
 
 on:
@@ -11,10 +12,9 @@ permissions:
   packages: write
 
 env:
-IMAGE_NAME: ghcr.io/stexavier1635/lab9-cicd
+  IMAGE_NAME: ghcr.io/stexavier1635/lab9-cicd
 
 jobs:
-
   Build:
     runs-on: ubuntu-latest
 
@@ -53,7 +53,6 @@ jobs:
   Deploy_Homologacao:
     needs: Build
     runs-on: ubuntu-latest
-
     if: github.ref == 'refs/heads/develop'
 
     environment:
@@ -79,7 +78,6 @@ jobs:
   Deploy_Producao:
     needs: Build
     runs-on: ubuntu-latest
-
     if: github.ref == 'refs/heads/main'
 
     environment:
